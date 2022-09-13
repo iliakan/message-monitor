@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+    <dict>
+        <key>Label</key>
+        <string>com.ilyakantor.message-monitor</string>
+        <key>Program</key>
+        <string>/opt/message-monitor/message-monitor</string>
+        <key>RunAtLoad</key>
+        <true/>
+        <key>KeepAlive</key>
+        <true/>
+        <!--
+        <key>StandardOutPath</key>
+        <string>/tmp/message-monitor.log</string>
+        <key>StandardErrorPath</key>
+        <string>/tmp/message-monitor.log</string>
+        -->
+    </dict>
+</plist>

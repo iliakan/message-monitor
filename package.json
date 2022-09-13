@@ -1,0 +1,17 @@
+{
+  "name": "message-monitor",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "bin": "index.js",
+  "author": "Ilya Kantor",
+  "scripts": {
+    "package": "npx pkg -t node18-mac-arm64 index.js -o message-monitor"
+  },
+  "license": "ISC",
+  "dependencies": {
+    "node-mac-permissions": "^2.2.1",
+    "sqlite": "^4.1.2",
+    "sqlite3": "^5.0.11"
+  }
+}
