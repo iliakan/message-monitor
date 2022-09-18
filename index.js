@@ -68,9 +68,13 @@ async function processMessages() {
 function processMessage(message) {
   let {text, chat_identifier} = message;
 
-  let code = text.match(/(?<=SMS-код |Никому не говорите код |Код для входа )\d+/)?.[0];
+  console.log(text, chat_identifier);
 
-  if (!code) return;
+  let codes = text.matchAll(/(?<=\s)\d{4,}/g);
+  if (!codes.length) return;
+  // let code = text.match(/(?<=SMS-код |Никому не говорите код |Код для входа |Никому не сообщайте код )\d+/)?.[0];
+
+  let code = codes[0][0];
 
   const proc = spawn('pbcopy');
   proc.stdin.write(code);
