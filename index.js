@@ -18,7 +18,8 @@ let db;
 
 async function run() {
 
-  askForFullDiskAccess()
+  // askForFullDiskAccess()
+
   // let f = fs.readFileSync(dbPath);
   // console.log(f);
 
@@ -68,14 +69,21 @@ async function processMessages() {
 function processMessage(message) {
   let {text, chat_identifier} = message;
 
-  console.log(text, chat_identifier);
+  console.log("[text]", text);
+  console.log("[chat id]", chat_identifier);
 
-  let codes = text.matchAll(/(?<=\s)\d{4,}/g);
+  let codes = [...text.matchAll(/(?<=\s)[-\d]{4,}/g)];
+
+  console.log(codes);
+
   if (!codes.length) return;
   // let code = text.match(/(?<=SMS-код |Никому не говорите код |Код для входа |Никому не сообщайте код )\d+/)?.[0];
 
   let code = codes[0][0];
 
+  code = code.replace(/-/g, '');
+
+  console.log(code);
   const proc = spawn('pbcopy');
   proc.stdin.write(code);
   proc.stdin.end();
